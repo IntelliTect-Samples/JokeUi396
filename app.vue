@@ -31,9 +31,11 @@
 let joke = ref({ question: "", answer: "", author: "" });
 
 function getJoke() {
-  $fetch("https://simplejokeapi.azurewebsites.net/joke").then((data: any) => {
-    joke.value = data;
-  });
+  $fetch("https://jokefunction396.azurewebsites.net/api/joke").then(
+    (data: any) => {
+      joke.value = data;
+    }
+  );
 }
 getJoke();
 </script>
