@@ -1,0 +1,36 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - run: echo "deploy to prod"
+        name: deploy
+        # ...deployment-specific steps
+
+  deploy-test:
+    runs-on: ubuntu-latest
+    environment: test
+    depends-on: dev
+    steps:
+      - run: echo "deploy to prod"
+        name: deploy
+        # ...deployment-specific steps
+
+  deploy-prod:
+    runs-on: ubuntu-latest
+    environment: prod
+    depends-on: test
+    steps:
+      - run: echo "deploy to prod"
+        name: deploy
+        # ...deployment-specific steps
+
