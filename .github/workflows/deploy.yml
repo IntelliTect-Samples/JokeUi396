@@ -4,7 +4,11 @@ on:
   push:
     branches:
       - main
+      - dev*
   workflow_dispatch:
+
+env:
+    deployment-value: "test deployment value"
 
 jobs:
 
@@ -12,25 +16,33 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     steps:
-      - run: echo "deploy to prod"
+      - run: |
+          printenv
+          echo "Secrets:"  
+          echo '${{ secrets.ENVIRONMENTSECRET }}'
+          echo "Variable:"  
+          echo 'env var ${{ env.deployment-value }}'
         name: deploy
         # ...deployment-specific steps
 
   deploy-test:
     runs-on: ubuntu-latest
     environment: test
-    depends-on: dev
+    needs: deploy-dev 
     steps:
-      - run: echo "deploy to prod"
+      - run: |
+          echo ${{ secrets.ENVIRONMENTSECRET }}
+          echo ${{ vars.DEPLOYMENT }}
         name: deploy
         # ...deployment-specific steps
 
   deploy-prod:
     runs-on: ubuntu-latest
     environment: prod
-    depends-on: test
+    needs: deploy-test
     steps:
-      - run: echo "deploy to prod"
+      - run: |
+          echo ${{ secrets.ENVIRONMENTSECRET }}
+          echo ${{ vars.DEPLOYMENT }}
         name: deploy
         # ...deployment-specific steps
-
