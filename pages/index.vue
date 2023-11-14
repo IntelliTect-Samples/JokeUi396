@@ -29,9 +29,9 @@
             Submit a Joke
           </v-btn>
         </nuxt-link>
-        <nuxt-link to="/approve">
+        <nuxt-link to="/pendingList">
           <v-btn color="red" variant="flat" elevation="4">
-            Approve a Joke
+            Approve Submitted Jokes
           </v-btn>
         </nuxt-link>
       </v-card-actions>
