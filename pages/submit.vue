@@ -43,9 +43,8 @@ let joke = reactive({
   text: "",
   id: "",
   created: "",
-  tags: ["joke"],
-  rating: 4,
-  tagList: "joke",
+  tags: ["joke", "corny"],
+  rating: 4
 });
 
 function submit() {
