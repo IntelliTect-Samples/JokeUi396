@@ -11,24 +11,26 @@
       </v-img>
       <v-card-text>
         <nuxt-link to="/jotd">
-          <v-btn color="blue" variant="flat" elevation="4">
+          <v-btn color="yellow" variant="flat" elevation="4" class="mr-4">
             Joke of the Day
           </v-btn>
         </nuxt-link>
 
         <nuxt-link to="/random">
-          <v-btn color="blue" variant="flat" elevation="4"> Random Joke </v-btn>
+          <v-btn color="green" variant="flat" elevation="4">
+            Random Joke
+          </v-btn>
         </nuxt-link>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
         <nuxt-link to="/submit">
-          <v-btn color="blue" variant="flat" elevation="4">
+          <v-btn color="blue" variant="flat" elevation="4" class="mr-4">
             Submit a Joke
           </v-btn>
         </nuxt-link>
         <nuxt-link to="/approve">
-          <v-btn color="blue" variant="flat" elevation="4">
+          <v-btn color="red" variant="flat" elevation="4">
             Approve a Joke
           </v-btn>
         </nuxt-link>
