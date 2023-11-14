@@ -1,10 +1,5 @@
 <template>
-  <router-view v-slot="{ Component, route }">
-    <transition name="router-transition" mode="out-in" appear>
-      <component :is="Component" :key="route.path" />
-    </transition>
-  </router-view>
-  <!-- <div class="d-flex align-center flex-column">
+  <div class="d-flex align-center flex-column">
     <v-card width="600" elevation="6" style="margin-top: 20px">
       <v-img
         class="align-end text-white"
@@ -20,13 +15,26 @@
             Joke of the Day
           </v-btn>
         </nuxt-link>
+
+        <nuxt-link to="/random">
+          <v-btn color="blue" variant="flat" elevation="4"> Random Joke </v-btn>
+        </nuxt-link>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
+        <nuxt-link to="/submit">
+          <v-btn color="blue" variant="flat" elevation="4">
+            Submit a Joke
+          </v-btn>
+        </nuxt-link>
+        <nuxt-link to="/approve">
+          <v-btn color="blue" variant="flat" elevation="4">
+            Approve a Joke
+          </v-btn>
+        </nuxt-link>
       </v-card-actions>
     </v-card>
-  </div> -->
+  </div>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
