@@ -17,11 +17,10 @@ jobs:
     environment: dev
     steps:
       - run: |
+          .\tools\display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
+          .\tools\display-value.ps1 ${{ env.deployment-value }}'
           printenv
-          echo "Secrets:"  
-          echo '${{ secrets.ENVIRONMENTSECRET }}'
-          echo "Variable:"  
-          echo 'env var ${{ env.deployment-value }}'
+
         name: deploy
         # ...deployment-specific steps
 
