@@ -2,7 +2,7 @@
 param([string]$value = "")
 
 if ($value) {
-    Write-Host "Value is $Value"
+    Write-Host "Value is $value"
 }
 else {
     Write-Host "no value provided"
