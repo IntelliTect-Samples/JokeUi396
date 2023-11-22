@@ -19,8 +19,7 @@ jobs:
       - run: |
           $PSVersionTable
           pwd
-          .\\tools\\display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
-          printenv
+          ./tools/display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
 #          .//tools//display-value.ps1 ${{ env.deployment-value }}
 
         name: deploy
