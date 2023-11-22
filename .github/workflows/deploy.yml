@@ -19,12 +19,13 @@ jobs:
       - run: |
           $PSVersionTable
           pwd
-          ls tools
-          ./tools/display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
+          dir tools
+          ./display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
 #          .//tools//display-value.ps1 ${{ env.deployment-value }}
 
         name: deploy
         shell: pwsh
+        working-directory: ./tools  
 
         # ...deployment-specific steps
 
