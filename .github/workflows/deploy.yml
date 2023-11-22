@@ -16,12 +16,15 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     steps:
+
       - run: |
-          .\tools\display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
+          .\\tools\\display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
           .\tools\display-value.ps1 ${{ env.deployment-value }}'
           printenv
 
         name: deploy
+        shell: pwsh
+        
         # ...deployment-specific steps
 
   deploy-test:
