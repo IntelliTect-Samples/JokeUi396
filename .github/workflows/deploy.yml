@@ -18,8 +18,8 @@ jobs:
     steps:
 
       - run: |
-          .\\tools\\display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
-          .\tools\display-value.ps1 ${{ env.deployment-value }}
+          ./tools/display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
+          ./tools/display-value.ps1 ${{ env.deployment-value }}
           printenv
 
         name: deploy
