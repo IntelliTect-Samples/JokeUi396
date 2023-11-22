@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     steps:
-
+      - uses: actions/checkout@v3
       - run: |
           $PSVersionTable
           pwd
@@ -25,7 +25,7 @@ jobs:
 
         name: deploy
         shell: pwsh
-        working-directory: ./tools  
+        working-directory: tools  
 
         # ...deployment-specific steps
 
