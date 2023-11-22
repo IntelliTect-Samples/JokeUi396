@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: |
           ./display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
-          ./display-value.ps1 ${{ env.ENVIRONMENTVALUE }}
+          ./display-value.ps1 ${{ vars.DEPLOYMENT }}
         name: deploy
         shell: pwsh
         working-directory: tools  
