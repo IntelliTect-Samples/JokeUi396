@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: |
           ./display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
-          ./display-value.ps1 ${{ vars.DEPLOYMENT }}
+          dir env:
         name: deploy
         shell: pwsh
         working-directory: tools  
@@ -32,7 +32,7 @@ jobs:
     steps:
       - run: |
           echo ${{ secrets.ENVIRONMENTSECRET }}
-          echo ${{ vars.DEPLOYMENT }}
+          echo "Deployment is $DEPLOYMENT"
         name: deploy
         # ...deployment-specific steps
 
@@ -43,6 +43,6 @@ jobs:
     steps:
       - run: |
           echo ${{ secrets.ENVIRONMENTSECRET }}
-          echo ${{ vars.DEPLOYMENT }}
+          echo "Deployment is $DEPLOYMENT"
         name: deploy
         # ...deployment-specific steps
