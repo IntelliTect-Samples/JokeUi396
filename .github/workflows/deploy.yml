@@ -17,10 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          $PSVersionTable
           ./display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
-#          .//tools//display-value.ps1 ${{ env.deployment-value }}
-
+          ./display-value.ps1 ${{ env.ENVIRONMENTVALUE }}
         name: deploy
         shell: pwsh
         working-directory: tools  
