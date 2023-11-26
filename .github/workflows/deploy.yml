@@ -33,7 +33,7 @@ jobs:
     steps:
       - run: |
           echo ${{ secrets.ENVIRONMENTSECRET }}
-          echo "Deployment is $env:deploymentvalue"
+          echo "Deployment is $deploymentvalue"
         name: deploy
         # ...deployment-specific steps
 
@@ -44,6 +44,6 @@ jobs:
     steps:
       - run: |
           echo ${{ secrets.ENVIRONMENTSECRET }}
-          echo "Deployment is $env:deploymentvalue"
+          echo "Deployment is $deploymentvalue"
         name: deploy
         # ...deployment-specific steps
