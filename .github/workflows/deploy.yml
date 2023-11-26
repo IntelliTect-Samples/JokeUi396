@@ -19,7 +19,6 @@ jobs:
       - run: |
           ./display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
           echo "deployment value is $env:deploymentvalue"
-          dir env:
         name: deploy
         shell: pwsh
         working-directory: tools  
