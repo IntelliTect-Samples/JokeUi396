@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-    deployment-value: ${{ vars.DEPLOYMENT }}
+    deploymentvalue: ${{ vars.DEPLOYMENT }}
 
 jobs:
 
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: |
           ./display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
-          echo "deployment value is $deployment-value"
+          echo "deployment value is $deploymentvalue"
           dir env:
         name: deploy
         shell: pwsh
@@ -33,7 +33,7 @@ jobs:
     steps:
       - run: |
           echo ${{ secrets.ENVIRONMENTSECRET }}
-          echo "Deployment is $deployment-value"
+          echo "Deployment is $deploymentvalue"
         name: deploy
         # ...deployment-specific steps
 
@@ -44,6 +44,6 @@ jobs:
     steps:
       - run: |
           echo ${{ secrets.ENVIRONMENTSECRET }}
-          echo "Deployment is $deployment-value"
+          echo "Deployment is $deploymentvalue"
         name: deploy
         # ...deployment-specific steps
