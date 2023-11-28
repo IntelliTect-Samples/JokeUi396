@@ -15,9 +15,8 @@
             Joke of the Day
           </v-btn>
         </nuxt-link>
-
         <nuxt-link to="/random">
-          <v-btn color="green" variant="flat" elevation="4">
+          <v-btn padding-top="32px" color="green" block rounded="xl" size="x-large" variant="elevated" elevation="16">
             Random Joke
           </v-btn>
         </nuxt-link>
