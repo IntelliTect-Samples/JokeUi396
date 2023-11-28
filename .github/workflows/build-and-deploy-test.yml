@@ -28,7 +28,7 @@ jobs:
       - name: Get app key
         id: appkey
         run: |
-          $key=$(az staticwebapp secrets list --name JokeUi396-dev --query "properties.apiKey" -o tsv)
+          key=$(az staticwebapp secrets list --name JokeUi396-dev --query "properties.apiKey" -o tsv)
           echo "key=$key" >> "$GITHUB_OUTPUT"
           echo "test=apples" >> "$GITHUB_OUTPUT"
       - name: Check Output
