@@ -12,12 +12,14 @@ jobs:
     uses: ./.github/workflows/deploy-web.yml
     with:
       deploy-env: dev
+      app-name: JokeUi396-dev
     secrets: inherit
 
   deploy-test:
     uses: ./.github/workflows/deploy-web.yml
     with:
       deploy-env: test
+      app-name: JokeUi396-test
     secrets: inherit
     needs: deploy-dev
 
