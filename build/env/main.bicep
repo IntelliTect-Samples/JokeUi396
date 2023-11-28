@@ -5,8 +5,8 @@ resource JokeUi396_site_resource 'Microsoft.Web/staticSites@2022-09-01' = {
   name: JokeSiteName
   location: location
   sku: {
-    name: 'Free'
-    tier: 'Free'
+    name: 'Standard'
+    tier: 'Standard'
   }
   properties: {
     repositoryUrl: 'https://github.com/IntelliTect-Samples/JokeUi396'
