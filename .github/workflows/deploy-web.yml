@@ -16,7 +16,7 @@ jobs:
   build_and_deploy_job:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
-    environment: ${{ inputs.environment }}
+    environment: ${{ inputs.deploy-env }}
     steps:
       - uses: actions/checkout@v3
       - name: 'Login to Azure'
