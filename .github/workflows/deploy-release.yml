@@ -1,27 +1,16 @@
-name: Deploy
+name: Deploy Release
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  release:
+    types: [published]
 
 jobs:
-
-  deploy-dev:
-    uses: ./.github/workflows/deploy-web.yml
-    with:
-      deploy-env: dev
-      app-name: JokeUi396-dev
-    secrets: inherit
 
   deploy-test:
     uses: ./.github/workflows/deploy-web.yml
     with:
       deploy-env: test
-      app-name: JokeUi396-test
     secrets: inherit
-    needs: deploy-dev
 
   deploy-prod:
     runs-on: ubuntu-latest
