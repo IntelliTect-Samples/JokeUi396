@@ -19,6 +19,7 @@ jobs:
     with:
       deploy-env: test
     secrets: inherit
+    needs: deploy-dev
 
   deploy-prod:
     runs-on: ubuntu-latest
