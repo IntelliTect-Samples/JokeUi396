@@ -1,7 +1,8 @@
 param location string = resourceGroup().location
-param JokeSiteName string = 'JokeUi396-dev'
+param targetenv string = 'dev'
+param JokeSiteName string = 'JokeUi396-${targetenv}'
 
-resource JokeUi396_site_resource 'Microsoft.Web/staticSites@2022-09-01' = {
+resource JokeSite 'Microsoft.Web/staticSites@2022-09-01' = {
   name: JokeSiteName
   location: location
   sku: {
@@ -16,7 +17,13 @@ resource JokeUi396_site_resource 'Microsoft.Web/staticSites@2022-09-01' = {
     provider: 'GitHub'
     enterpriseGradeCdnStatus: 'Disabled'
   }
+
+  resource JokeCustomDomain 'customDomains@2022-09-01' = {
+    name: '${targetenv}.intellitectsamples.com'
+  }
+
 }
+
 
 // resource Joke_APIM_resource 'Microsoft.Web/staticSites/linkedBackends@2022-09-01' = {
 //   name: 'jokeapim'
