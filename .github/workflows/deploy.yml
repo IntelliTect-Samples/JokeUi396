@@ -22,7 +22,7 @@ jobs:
           dir env:
         name: deploy
         shell: pwsh
-        working-directory: tools  
+        working-directory: build/tools  
 
         # ...deployment-specific steps
 
