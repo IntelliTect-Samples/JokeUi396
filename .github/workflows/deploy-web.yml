@@ -1,5 +1,6 @@
 # Reusable workflow to deploy static web app using OIDC
 # Inherited secrets required to function
+name: Deploy Web Reusable Workflow
 
 on:
   workflow_call:
