@@ -1,10 +1,9 @@
-name: JokeUI396 CI/CD
+name: Deploy Test
 
 on:
   push:
     branches:
       - main
-      - 9-test-environment
   workflow_dispatch:
 
 permissions:
