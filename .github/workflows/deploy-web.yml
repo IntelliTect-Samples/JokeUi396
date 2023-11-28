@@ -1,0 +1,41 @@
+# Reusable workflow to deploy static web app using OIDC
+# Inherited secrets required to function
+
+on:
+  workflow_call:
+    inputs:
+      deploy-env:
+        required: true
+        type: string
+
+jobs:
+  build_and_deploy_job:
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    environment: ${{ inputs.environment }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: 'Login to Azure'
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID_CREATED_SP }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      - name: Get app key
+        id: appkey
+        run: |
+          key=$(az staticwebapp secrets list --name JokeUi396-dev --query "properties.apiKey" -o tsv)
+          echo "key=$key" >> "$GITHUB_OUTPUT"
+    #   - name: Build And Deploy
+    #     id: builddeploy
+    #     uses: Azure/static-web-apps-deploy@v1
+    #     with:
+    #       azure_static_web_apps_api_token: ${{ steps.appkey.outputs.key }}
+    #       repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+    #       action: "upload"
+    #       ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+    #       # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+    #       app_location: "/" # App source code path
+    #       api_location: ".output/server" # Api source code path - optional
+    #       output_location: ".output/public" # Built app content directory - optional
+    #       ###### End of Repository/Build Configurations ######

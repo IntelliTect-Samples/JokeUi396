@@ -6,36 +6,19 @@ on:
       - main
   workflow_dispatch:
 
-env:
-    deploymentvalue: ${{ vars.DEPLOYMENT }}
-
 jobs:
 
   deploy-dev:
-    runs-on: ubuntu-latest
-    environment: dev
-    steps:
-      - uses: actions/checkout@v3
-      - run: |
-          ./display-value.ps1 ${{ secrets.ENVIRONMENTSECRET }}
-          echo "deployment value is $env:deploymentvalue"
-          dir env:
-        name: deploy
-        shell: pwsh
-        working-directory: build/tools  
-
-        # ...deployment-specific steps
+    uses: ./.github/workflows/deploy-web.yml
+    with:
+      deploy-env: dev
+    secrets: inherit
 
   deploy-test:
-    runs-on: ubuntu-latest
-    environment: test
-    needs: deploy-dev 
-    steps:
-      - run: |
-          echo ${{ secrets.ENVIRONMENTSECRET }}
-          echo "Deployment is $deploymentvalue"
-        name: deploy
-        # ...deployment-specific steps
+    uses: ./.github/workflows/deploy-web.yml
+    with:
+      deploy-env: test
+    secrets: inherit
 
   deploy-prod:
     runs-on: ubuntu-latest
