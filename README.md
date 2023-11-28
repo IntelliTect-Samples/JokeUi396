@@ -1,5 +1,8 @@
-# Nuxt 3 Minimal Starter
+# CSCD 396 Fall 2023
 
+A little web application to front the back-end Azure Rube Goldberg machine that we built in this class.
+
+This is a simple static Vue application.
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
