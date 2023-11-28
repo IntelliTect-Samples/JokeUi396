@@ -7,7 +7,7 @@
         src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
         cover
       >
-        <v-card-title>Joke of the Day Website</v-card-title>
+        <v-card-title>Joke of the Day Site</v-card-title>
       </v-img>
       <v-card-text>
         <nuxt-link to="/jotd">
