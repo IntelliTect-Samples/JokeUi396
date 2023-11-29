@@ -1,6 +1,28 @@
 <template>
   <div class="d-flex align-center flex-column">
+    
+    <b-navbar toggleable="lg" type="dark" variant="info">
+      <b-navbar-brand href="#">NavBar</b-navbar-brand>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-nav>
+        <b-nav-item>
+          <nuxt-link to="/submit">
+          
+            Submit a Joke
+          
+        </nuxt-link>
+        </b-nav-item>
+      </b-navbar-nav>
+      
+        <nuxt-link to="/pendingList">
+          <v-btn color="secondary" variant="flat" elevation="4">
+            Approve Submitted Jokes
+          </v-btn>
+        </nuxt-link>
+    </b-navbar>
+
     <v-card width="600" elevation="6" style="margin-top: 20px">
+      
       <v-img
         class="align-end text-white"
         height="200"
