@@ -24,12 +24,9 @@ jobs:
     needs: deploy-dev
 
   deploy-prod:
-    runs-on: ubuntu-latest
-    environment: prod
-    needs: deploy-test
-    steps:
-      - run: |
-          echo ${{ secrets.ENVIRONMENTSECRET }}
-          echo "Deployment is $deploymentvalue"
-        name: deploy
-        # ...deployment-specific steps
+    uses: ./.github/workflows/deploy-web.yml
+    with:
+      deploy-env: prod
+      app-name: JokeUi396
+    secrets: inherit
+    needs: deploy-dev
