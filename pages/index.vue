@@ -19,6 +19,7 @@
           </v-btn>
         </nuxt-link>
     </b-navbar>
+    <v-card width="80%" elevation="6" style="margin-top: 20px">
       <v-img
         class="align-end text-white"
         height="200"
