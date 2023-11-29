@@ -10,11 +10,18 @@
         <v-card-title>Joke of the Day</v-card-title>
       </v-img>
       <v-card-text>
-        <nuxt-link to="/jotd">
-          <v-btn color="yellow" variant="flat" elevation="4" class="mr-4">
-            Joke of the Day
-          </v-btn>
-        </nuxt-link>
+        <div class="d-flex mb-8 align-center flex-column">
+          <v-card width="90%" elevation="6" style="margin-top: 20px">
+            <v-card-text>
+              <p class="text-h6">{{ joke.question }}</p>
+              <p>{{ joke.answer }}</p>
+              <v-chip class="ma-2" color="primary" label>
+                <v-icon start icon="mdi-account-circle-outline"></v-icon>
+                {{ joke.author }}
+              </v-chip>
+            </v-card-text>
+          </v-card>
+        </div>
         <nuxt-link to="/random">
           <v-btn class="mt-4" color="green" block rounded="xl" size="x-large" variant="elevated" elevation="16">
             Random Joke
@@ -66,3 +73,18 @@
 </template>
 
 <script setup lang="ts"></script>
+
+<script setup lang="ts">
+import { ref } from "vue";
+
+let joke = ref({ question: "", answer: "", author: "" });
+
+function getJoke() {
+  $fetch("https://api.intellitectsamples.com/joke/jokeoftheday").then(
+    (data: any) => {
+      joke.value = data;
+    }
+  );
+}
+getJoke();
+</script>
