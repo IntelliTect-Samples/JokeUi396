@@ -10,15 +10,13 @@ jobs:
     uses: ./.github/workflows/deploy-web.yml
     with:
       deploy-env: test
+      app-name: JokeUi396-test
     secrets: inherit
 
   deploy-prod:
-    runs-on: ubuntu-latest
-    environment: prod
+    uses: ./.github/workflows/deploy-web.yml
+    with:
+      deploy-env: prod
+      app-name: JokeUi396
+    secrets: inherit
     needs: deploy-test
-    steps:
-      - run: |
-          echo ${{ secrets.ENVIRONMENTSECRET }}
-          echo "Deployment is $deploymentvalue"
-        name: deploy
-        # ...deployment-specific steps

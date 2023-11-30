@@ -29,4 +29,4 @@ jobs:
       deploy-env: prod
       app-name: JokeUi396
     secrets: inherit
-    needs: deploy-dev
+    needs: deploy-test
